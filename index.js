@@ -1,6 +1,6 @@
 const URL = "https://api.github.com/users/";
 
-// FUNC: GET getGithubUser(query, maxResults)
+// FUNC: GET getGithubUser()
 function getGithubUser() {
   fetch(URL + userInput() + "/repos")
     .then((response) => {
@@ -13,7 +13,7 @@ function getGithubUser() {
     .then((responseJson) => displayResults(responseJson))
     .catch((error) => {
       $("#js-error-message").text(
-        `Github username is invalid ${error.message}`
+        `Username not found, Status: 404 ${error.message}`
       );
     });
 }
